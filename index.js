@@ -1,7 +1,15 @@
-const fs = require('fs').promises;
+// const sum = require('./utils/math');
 
-const promise = fs.readFile('./userData.json', 'utf-8')
-.then(promiseValue=>{
-    const obj = JSON.parse(promiseValue);
-    fs.writeFile('./text.txt', `Hello ${obj.firstName} ${obj.lastName}`);
-})
+// console.log('hy')
+
+const http = require('http');
+
+const requestHandler = (request, response) => {
+    response.end('hello from server')
+}
+
+const server = http.createServer(requestHandler);
+
+server.listen(3000, ()=>{
+    console.log('app is started')
+});
