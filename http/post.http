@@ -1,1 +1,7 @@
-POST http://localhost:3000/ HTTP/1.1
+POST http://localhost:3000/createuser HTTP/1.1
+
+{
+    "firstName": "Iron",
+    "lastName": "Man",
+    "email": "22@gmail.com"
+}
