@@ -5,7 +5,11 @@
 const http = require('http');
 
 const requestHandler = (request, response) => {
-    response.end('hello from server')
+    if (request.method === 'GET'){
+        response.end('you send GET method')
+    } else if (request.method === 'POST') {
+        response.end('you send POST method')
+    }
 }
 
 const server = http.createServer(requestHandler);
