@@ -5,13 +5,17 @@ const http = require('http');
 const userDataBase = [];
 
 const requestHandler = (request, response) => {
-    console.log(request.method)
+    console.log(request.url, request.method)
     if (request.method === 'GET'){
         if (request.url === '/') {
             fs.readFile('./views/index.html', 'utf-8')
             .then(data=>response.end(data))
+            .catch(error=>response.end(error));
+        } else if (request.url === '/home.html') {
+            fs.readFile('./views/home.html', 'utf-8')
+            .then(data=>response.end(data))
             .catch(error=>response.end(error))
-        }  else if (request.url === '/style.css') {
+        } else if (request.url === '/style.css') {
             fs.readFile('./views/style.css', 'utf-8')
             .then(data=>response.end(data))
             .catch(error=>response.end(error))
@@ -46,8 +50,3 @@ server.listen(3000, ()=>{
     console.log('app is started')
 });
 
-// else if (request.url === '/home.html', 'utf-8') {
-//     fs.readFile('./views/home.html')
-//     .then(data=>response.end(data))
-//     .catch(error=>response.end(error))
-// }
