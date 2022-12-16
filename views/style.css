@@ -1,0 +1,10 @@
+.header {
+    color: pink;
+    font-size: 2em
+}
+
+.text {
+    color: orange;
+    font-size: 1.2em;
+    background-color: burlywood;
+}
